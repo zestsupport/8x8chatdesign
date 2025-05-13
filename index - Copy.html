@@ -231,8 +231,8 @@ table, td, th {
 <button class="open-button" onclick="openForm()">Request a Callback</button>
 
 <div class="form-popup" id="myForm">
-  <form id="WebCallBack" onsubmit="submitWebCallback(event)" oninput="extTransactionData.value = '[Name|' + fname.value +' '+ lname.value + '][Location|' + location.value + '][Reason|' + reason.value +']'">
-
+  <form name="WebCallBack" action="https://vcc-eu8.8x8.com/SC/webcallback.php" method="get"  
+        oninput="extTransactionData.value = '[Name|' + fname.value +' '+ lname.value + '][Location|' + location.value + '][Reason|' + reason.value +']'">
     <input type="hidden" name="extTransactionData"/>
     <input type="hidden" name="tenant" value="dbfbdemo01"/>  <!-- Tenant Name. -->
     <input type="hidden" name="token" value="28072c1255afe841a5d62d7bdd68197fb00fe73766abb16ce0205c4a430515a1"/>  <!-- Action Tokes. -->
@@ -261,30 +261,6 @@ table, td, th {
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
 </div>
-
-<script>
-function submitWebCallback(event) {
-  event.preventDefault(); // Stop normal form submission
-
-  const form = document.getElementById("WebCallBack");
-  const formData = new FormData(form);
-  const params = new URLSearchParams(formData).toString();
-
-  fetch("https://vcc-eu8.8x8.com/SC/webcallback.php?" + params)
-    .then(response => {
-      if (response.ok) {
-        alert("Callback request submitted successfully.");
-        closeForm();
-      } else {
-        alert("Error submitting callback request.");
-      }
-    })
-    .catch(error => {
-      console.error("Request failed:", error);
-      alert("There was an error. Please try again.");
-    });
-}
-</script>
 
 <script>
 function openForm() {
