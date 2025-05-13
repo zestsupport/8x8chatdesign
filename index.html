@@ -264,7 +264,7 @@ table, td, th {
 
 <script>
 function submitWebCallback(event) {
-  event.preventDefault(); // Stop normal form submission
+  event.preventDefault();
 
   const form = document.getElementById("WebCallBack");
   const formData = new FormData(form);
@@ -273,18 +273,19 @@ function submitWebCallback(event) {
   fetch("https://vcc-eu8.8x8.com/SC/webcallback.php?" + params)
     .then(response => {
       if (response.ok) {
-        alert("Callback request submitted successfully.");
-        closeForm();
+        console.log("Callback request submitted successfully.");
+        closeForm(); // or show a hidden success message instead
       } else {
-        alert("Error submitting callback request.");
+        console.warn("8x8 callback request failed with status:", response.status);
+        // optionally show a message on the page
       }
     })
     .catch(error => {
       console.error("Request failed:", error);
-      alert("There was an error. Please try again.");
     });
 }
 </script>
+
 
 <script>
 function openForm() {
