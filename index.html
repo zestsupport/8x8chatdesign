@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Totally247's 8x8 Demo</title>  <!-- Web Page Tab Name. -->
+		<title>Acorn Motor Group's 8x8 Demo</title>  <!-- Web Page Tab Name. -->
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<style>
         body {
@@ -10,18 +10,20 @@
         }
     	</style>
 	</head>
-
+<body>
 
     <nav>
-      <ul id="navbar" style="list-style: none; text-align: right;">
-        <li><div id="__8x8-chat-button-container-script_400379141681b2ac61e3958.80686093"></div></li> <!-- chat button id. -->
-	<li style="float:left"><a href="https://zestsupport.github.io/8x8chatdesign/co-browse/"><img src="toplhlogo.PNG"></a></li> <!-- the top left hand logo and makes the logo a button to go to the cobrowse page. -->
-			
+      <ul id="navbar">
+        <li class="logo-item"><a href="https://zestsupport.github.io/8x8chatdesign/co-browse/"><img src="toplhlogo.PNG" alt="Top left logo"></a></li> <!-- the top left hand logo and makes the logo a button to go to the cobrowse page. -->
       </ul>
     </nav>
-  
 
-<body>
+    <div class="floating-actions">
+      <div class="chat-launcher">
+        <div id="__8x8-chat-button-container-script_400379141681b2ac61e3958.80686093"></div> <!-- chat button id. -->
+      </div>
+      <button class="open-button" onclick="openForm()">Request a Callback</button>
+    </div>
 
       <!-- This script will not interfere with the button layout, you just need to include it in the same page. It must also be within the <body> section of the page, preferably just before the ending tag. -->
     <script type="text/javascript">
@@ -74,7 +76,7 @@
 	
 <script>
 window.CoBrowsingCustomStrings = {
-  "popup-title": "Zest4's Co-browsing", <!-- CoBrowse name. -->
+  "popup-title": "Zest4's Co-browsing",
   "popup-close": "X",
   "popup-start-information": "Please Click Start to initialize the Co-browsing session and pass the session ID below to the Agent.",
   "popup-sync-information": "You may have open another page that is currently being synchronized. Click Synchronize to synchronize this page instead.",
@@ -101,8 +103,6 @@ window.CoBrowsingCustomStrings = {
 b=i.getElementsByTagName(g)[0];b.parentNode.insertBefore(o,b); 
 })(window,document,'script','data-8x8-co-browsing','https://cb.8x8.com/license{67d9cdab4333f7004d23c32f}/dist/primary-bundle.js','6824dbac53cdd2004d981e67','data-8x8-co-browsing-mode','full-control'); 
 </script> 	
-
-</body>
  
     
 <div id="welcome-section" >
@@ -136,6 +136,21 @@ body {
 }
 
 /* Button used to open the contact form - fixed at the bottom of the page */
+.floating-actions {
+  position: fixed;
+  right: 28px;
+  bottom: 23px;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  z-index: 1100;
+}
+
+.chat-launcher,
+.chat-launcher > div {
+  display: block;
+}
+
 .open-button {
   background-color: #555;
   color: white;
@@ -143,9 +158,6 @@ body {
   border: none;
   cursor: pointer;
   opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
   width: 245px;
   border-radius: 10px; /* Rounded edges */
 }
@@ -157,7 +169,7 @@ body {
   bottom: 0;
   right: 15px;
   border: 3px solid #f1f1f1;
-  z-index: 9;
+  z-index: 1200;
   background-color: white;
   color: #3a3a38;
   border-radius: 15px; /* Rounded edges for popup */
@@ -222,13 +234,6 @@ table, td, th {
   color: #3a3a38;
 }
 </style>
-</head>
-
-	
-	
-<body>
-
-<button class="open-button" onclick="openForm()">Request a Callback</button>
 
 <div class="form-popup" id="myForm">
   <form id="WebCallBack" onsubmit="submitWebCallback(event)" oninput="extTransactionData.value = '[Name|' + fname.value +' '+ lname.value + '][Location|' + location.value + '][Reason|' + reason.value +']'">
@@ -298,4 +303,5 @@ function closeForm() {
 </script>
 
 	
+</body>
 </html>
